@@ -3,7 +3,13 @@
 import Vue from 'vue'
 import App from './App'
 import Listtodos from './components/Listtodos'
-Vue.component('todos',Listtodos) 
+import TitleHero from './components/TitleHero'
+import Navmenu from './components/Navmenu'
+import FooterBlog from './components/FooterBlog'
+Vue.component('todos',Listtodos)
+Vue.component('titlehero',TitleHero) 
+Vue.component('navmenu',Navmenu) 
+Vue.component('footerblog',FooterBlog) 
 
 /* eslint-disable no-new */
 new Vue({
