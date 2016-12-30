@@ -2,7 +2,7 @@
   <div id="app">
     <titlehero></titlehero>
     <navmenu></navmenu>
-    
+    <sectionblog></sectionblog>
     <footerblog></footerblog>
   
   </div>
