@@ -1,19 +1,19 @@
 <template>
   <div id="app">
-    <titlehero></titlehero>
-    <navmenu></navmenu>
-    <sectionblog></sectionblog>
-    <footerblog></footerblog>
+   
+    <router-view></router-view>
+   
   
   </div>
 </template>
 <script>
 
-export default {
+module.exports = {
   name: 'app',
   components: {
     
   }
+  
 }
 </script>
 

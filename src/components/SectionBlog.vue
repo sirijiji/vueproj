@@ -1,8 +1,14 @@
 <template>
-
+<div id="sectionblog">
+<titlehero></titlehero>
+    <navmenu></navmenu>
     <section class="section">
-       <postblog></postblog>
+      
+      <router-view></router-view>
+       
     </section>
+    <footerblog></footerblog>
+</div>    
 </template>
 
 <script>
