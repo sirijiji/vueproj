@@ -24,7 +24,6 @@ Vue.use(VueRouter)
 
 const routes = [ 
   
-  
   {path: '/sectionblog', component: SectionBlog,
   children:[
     {path:'post', component: PostBlog}
