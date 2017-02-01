@@ -16,27 +16,21 @@
 <script>
  var database = firebase.database();
 
-var title = '';
-var datas = database.ref().child('results/0');
-
-datas.on('value',function(data){
-
-  
-    console.log(data.val().header);
-  
-  
-}); 
 
 module.exports = {
   name: 'titlehero',
   data: function () {
+  var titleObj = {msg:'', subMsg:''};
+  var refDatabase = database.ref();
+  refDatabase.child('title').on('value',function(data){
+      titleObj.msg = data.val();
+  });
 
-    
-    return {
-      msg: title,
-      subMsg : 'Un blog sur java et le javascript'
-      
-    }
+  refDatabase.child('user').on('value',function(data){
+      titleObj.subMsg = data.val();
+  });
+  
+    return titleObj;
   }
 }
 </script>

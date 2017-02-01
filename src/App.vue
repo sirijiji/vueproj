@@ -10,11 +10,11 @@
 
 // Initialize Firebase
   var config = {
-    apiKey: "AIzaSyBvmNILd2wFu_8ZZge8RyhPf0zWaNFE7D0",
-    authDomain: "sizzling-fire-6227.firebaseapp.com",
-    databaseURL: "https://sizzling-fire-6227.firebaseio.com",
-    storageBucket: "sizzling-fire-6227.appspot.com",
-    messagingSenderId: "284009053496"
+    apiKey: "AIzaSyCA_rZLNH0dMdttS1dWhvZiPMpXhcWBwRg",
+    authDomain: "vuejsblog.firebaseapp.com",
+    databaseURL: "https://vuejsblog.firebaseio.com",
+    storageBucket: "vuejsblog.appspot.com",
+    messagingSenderId: "444441177109"
   };
   firebase.initializeApp(config);
 
