@@ -14,11 +14,26 @@
 </template>
 
 <script>
+ var database = firebase.database();
+
+var title = '';
+var datas = database.ref().child('results/0');
+
+datas.on('value',function(data){
+
+  
+    console.log(data.val().header);
+  
+  
+}); 
+
 module.exports = {
   name: 'titlehero',
   data: function () {
+
+    
     return {
-      msg: 'Sirisak Blog',
+      msg: title,
       subMsg : 'Un blog sur java et le javascript'
       
     }
