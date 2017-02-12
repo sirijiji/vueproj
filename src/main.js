@@ -11,6 +11,7 @@ import SectionBlog from './components/SectionBlog'
 import PostBlog from './components/PostBlog'
 import ListPostBlog from './components/ListPostBlog'
 import AppPost from './components/AppPost'
+import AddPostForm from './components/AddPostForm'
 
 
 Vue.component('titlehero',TitleHero) 
@@ -20,6 +21,7 @@ Vue.component('sectionblog',SectionBlog)
 Vue.component('postblog',PostBlog)
 Vue.component('listblogpost',ListPostBlog) 
 Vue.component('apppost',AppPost) 
+Vue.component('addpostform',AddPostForm) 
 Vue.use(VueRouter)
 
 const routes = [ 
@@ -28,7 +30,8 @@ const routes = [
   children:[
     {path:'post', component: PostBlog}
   ]},
-  {path:'/', component: AppPost}
+  {path:'/', component: AppPost},
+  {path:'/addPostForm', component: AddPostForm},
 ]
 
 

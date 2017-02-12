@@ -1,6 +1,7 @@
 <template>
 <div id="sectionblog">
 <titlehero></titlehero>
+ 
     <navmenu></navmenu>
     <section class="section">
       

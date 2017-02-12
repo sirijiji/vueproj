@@ -1,7 +1,7 @@
 <template>
   <div id="apppost">
     <titlehero></titlehero>
-    <navmenu></navmenu>
+    
     <listblogpost></listblogpost>
     <footerblog></footerblog>
   
