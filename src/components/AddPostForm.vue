@@ -53,7 +53,8 @@
                 firebase.database().ref('posts/' + this.name).set({
                     username: this.name,
                     subject: this.subject,
-                    text:this.text
+                    text: this.text,
+                    createdAt : firebase.database.ServerValue.TIMESTAMP
                 }).then(function(){
                     console.log("success");
                 }, function(err){

@@ -1,13 +1,20 @@
 <template>
-  <section class="section">
+  <div >
+  <section class="section" v-for="item of posts">
     <div class="container">
       
+      
+
+      
+     
       <router-link to="/sectionblog/post" replace>
-        <h1 class="title linktitle">{{ msg }}</h1>
-        <h3 class="subtitle linktitle">10/01/2017</h3>
+        <h1 class="title linktitle">{{item.subject}}</h1>
+        <h3 class="subtitle linktitle">{{item.createdAt | formatDate}}</h3>
       </router-link>
-      <div class="separator"> 
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan, metus ultrices eleifend gravida, nulla nunc varius lectus, nec rutrum justo nibh eu lectus. Ut vulputate semper dui. Fusce erat odio, sollicitudin vel erat vel, interdum mattis neque.</p>
+     
+      
+      <div class="separator"/> 
+          <!-- p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan, metus ultrices eleifend gravida, nulla nunc varius lectus, nec rutrum justo nibh eu lectus. Ut vulputate semper dui. Fusce erat odio, sollicitudin vel erat vel, interdum mattis neque.</p>
   <h2>Second level</h2>
   <p>Curabitur accumsan turpis pharetra <strong>augue tincidunt</strong> blandit. Quisque condimentum maximus mi, sit amet commodo arcu rutrum id. Proin pretium urna vel cursus venenatis. Suspendisse potenti. Etiam mattis sem rhoncus lacus dapibus facilisis. Donec at dignissim dui. Ut et neque nisl.</p>
   <ul>
@@ -16,20 +23,27 @@
     <li>Aliquam nec felis in sapien venenatis viverra fermentum nec lectus.</li>
     <li>Ut non enim metus.</li>
   </ul>
-      </div>  
+      </div>  -->
        
     </div>
   </section>
+  </div>
 </template>
 
 <script>
 module.exports = {
   name: 'listblogpost',
   data: function () {
-    return {
-      msg: 'Example Blog post'
-    }
+
+    
+    var tabposts = [];
+    firebase.database().ref('posts/').on('child_added', function(data){
+        tabposts.push(data.val());
+    });
+    
+    return {posts:tabposts};
   }
+
 }
 </script>
 
