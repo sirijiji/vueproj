@@ -34,12 +34,30 @@
         <p class="control">
             <button  class="button is-link">Cancel</button>
         </p>
+
+        <vue-toastr ref="toastr"></vue-toastr>
         </div>       
     </section>
     <footerblog></footerblog>
     </div>
 </template>
 <script>
+import Vue from 'vue'
+import toastr from 'vue-toastr'
+import vuerouter from 'vue-router'
+import AppPost from './AppPost'
+
+require('vue-toastr/src/vue-toastr.less');
+
+// Register vue component
+Vue.component('vue-toastr',toastr);
+
+const routes = [ 
+  {path:'/', component: AppPost}
+]
+const router = new vuerouter({
+  routes // short for routes: routes
+})
 
     module.exports = {
         name: 'addpostform',
@@ -47,21 +65,34 @@
             return {name:'', subject:'', text:''}
         },
         methods: {
-
+            
             submitForm:function(){
-
+                var vm = this;
                 firebase.database().ref('posts/' + this.name).set({
                     username: this.name,
                     subject: this.subject,
                     text: this.text,
                     createdAt : firebase.database.ServerValue.TIMESTAMP
                 }).then(function(){
-                    console.log("success");
+                    
+                     vm.$refs.toastr.Add({
+                        title: "SUCCESS MESSAGE",
+                        msg: "Post successfully added",
+                        clickClose: true, // Click Close Disable
+                        timeout: 5000, // Remember defaultTimeout is 5 sec..
+                        position: "toast-top-full-width",
+                        type: "success",
+                        onClosed: function(){
+                            router.push({path:'/'});
+                        }
+                    });
+
+                    
+
                 }, function(err){
-                    console.log('error');
+                    toastr.error('Error', ' the post could not be added', {timeOut: 3000})
                 });
             }
-
         }
     }
 </script>

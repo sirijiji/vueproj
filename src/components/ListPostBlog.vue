@@ -31,6 +31,7 @@
 </template>
 
 <script>
+require('moment/moment.js');
 module.exports = {
   name: 'listblogpost',
   data: function () {

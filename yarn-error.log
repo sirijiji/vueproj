@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/bin/yarn add moment
+  /usr/local/bin/node /usr/local/bin/yarn remove jquery
 
 PATH: 
   /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/usr/local/go/bin:/usr/local/apache-maven-3.2.3/bin:/Users/sirisak/android-sdks/tools:/Users/sirisak/android-sdks/platform-tools
@@ -30,6 +30,8 @@ npm manifest:
       "framework7": "^1.5.2",
       "framework7-vue": "^0.7.7",
       "moment": "^2.17.1",
+      "toastr": "^2.1.2",
+      "underscore": "^1.8.3",
       "vue": "^2.1.8",
       "vue-router": "^2.1.1"
     },
@@ -1964,6 +1966,10 @@ Lockfile:
     dependencies:
       jsbn "~0.1.0"
   
+  jquery@^3.1.1:
+    version "3.1.1"
+    resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.1.1.tgz#347c1c21c7e004115e0a4da32cece041fad3c8a3"
+  
   js-base64@^2.1.9:
     version "2.1.9"
     resolved "https://registry.yarnpkg.com/js-base64/-/js-base64-2.1.9.tgz#f0e80ae039a4bd654b5f281fc93f04a914a7fcce"
@@ -2362,6 +2368,10 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-0.5.1.tgz#30057438eac6cf7f8c4767f38648d6697d75c903"
     dependencies:
       minimist "0.0.8"
+  
+  moment@^2.17.1:
+    version "2.17.1"
+    resolved "https://registry.yarnpkg.com/moment/-/moment-2.17.1.tgz#fed9506063f36b10f066c8b59a144d7faebe1d82"
   
   ms@0.7.1:
     version "0.7.1"
@@ -3391,6 +3401,10 @@ Lockfile:
     version "1.0.2"
     resolved "https://registry.yarnpkg.com/to-fast-properties/-/to-fast-properties-1.0.2.tgz#f3f5c0c3ba7299a7ef99427e44633257ade43320"
   
+  toastr@^2.1.2:
+    version "2.1.2"
+    resolved "https://registry.yarnpkg.com/toastr/-/toastr-2.1.2.tgz#fd69066ae7578a5b3357725fc9c7c335e9b681df"
+  
   toposort@^1.0.0:
     version "1.0.0"
     resolved "https://registry.yarnpkg.com/toposort/-/toposort-1.0.0.tgz#b66cf385a1a8a8e68e45b8259e7f55875e8b06ef"
@@ -3436,6 +3450,10 @@ Lockfile:
   uid-number@~0.0.6:
     version "0.0.6"
     resolved "https://registry.yarnpkg.com/uid-number/-/uid-number-0.0.6.tgz#0ea10e8035e8eb5b8e4449f06da1c730663baa81"
+  
+  underscore@^1.8.3:
+    version "1.8.3"
+    resolved "https://registry.yarnpkg.com/underscore/-/underscore-1.8.3.tgz#4f3fb53b106e6097fcf9cb4109f2a5e9bdfa5022"
   
   uniq@^1.0.1:
     version "1.0.1"

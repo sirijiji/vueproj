@@ -13,6 +13,7 @@ import ListPostBlog from './components/ListPostBlog'
 import AppPost from './components/AppPost'
 import AddPostForm from './components/AddPostForm'
 import moment from 'moment'
+import toastr from 'toastr'
 
 
 Vue.component('titlehero',TitleHero) 
@@ -23,10 +24,11 @@ Vue.component('postblog',PostBlog)
 Vue.component('listblogpost',ListPostBlog) 
 Vue.component('apppost',AppPost) 
 Vue.component('addpostform',AddPostForm) 
+
 Vue.use(VueRouter)
 
 Vue.filter('formatDate', function (date) {
-  return moment(date).format('DD/MM/YYYY');
+  return moment(date).format('DD/MM/YYYY hh:mm:ss');
 })
 
 
