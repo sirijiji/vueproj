@@ -13,7 +13,7 @@ import ListPostBlog from './components/ListPostBlog'
 import AppPost from './components/AppPost'
 import AddPostForm from './components/AddPostForm'
 import moment from 'moment'
-import toastr from 'toastr'
+
 
 
 Vue.component('titlehero',TitleHero) 
