@@ -3,7 +3,7 @@
 <nav class="nav">
 
   <span class="nav-toggle">
-    <span></span>
+    <span>{{first}}</span>
     <span></span>
     <span></span>
   </span>

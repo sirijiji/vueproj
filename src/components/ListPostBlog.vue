@@ -1,48 +1,69 @@
 <template>
-  <div >
-  <section class="section" v-for="item of posts">
-    <div class="container">
-      
-      
+   <div class="container">
 
+  <div v-for="item of posts">
+   
+    
+     <article class="message is-info">
+      <div class="message-header-align">
+        <router-link :to="{path: '/sectionblog/post/'+item.id}" replace>
+        <h3 class="title">{{item.title}} &nbsp; {{item.creationDate | formatDate}}</h3> 
+        </router-link>
+        <button v-on:click="deleteNote(item.id)" class="delete" aria-label="delete"></button>
+      </div>
+      <div class="message-body is-medium">
+        <h3>{{item.content}}</h3>
+      </div>
+    </article>
       
-     
-      <router-link to="/sectionblog/post" replace>
-        <h1 class="title linktitle">{{item.subject}}</h1>
-        <h3 class="subtitle linktitle">{{item.createdAt | formatDate}}</h3>
-      </router-link>
-     
-      
-      <div class="separator"/> 
-          <!-- p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan, metus ultrices eleifend gravida, nulla nunc varius lectus, nec rutrum justo nibh eu lectus. Ut vulputate semper dui. Fusce erat odio, sollicitudin vel erat vel, interdum mattis neque.</p>
-  <h2>Second level</h2>
-  <p>Curabitur accumsan turpis pharetra <strong>augue tincidunt</strong> blandit. Quisque condimentum maximus mi, sit amet commodo arcu rutrum id. Proin pretium urna vel cursus venenatis. Suspendisse potenti. Etiam mattis sem rhoncus lacus dapibus facilisis. Donec at dignissim dui. Ut et neque nisl.</p>
-  <ul>
-    <li>In fermentum leo eu lectus mollis, quis dictum mi aliquet.</li>
-    <li>Morbi eu nulla lobortis, lobortis est in, fringilla felis.</li>
-    <li>Aliquam nec felis in sapien venenatis viverra fermentum nec lectus.</li>
-    <li>Ut non enim metus.</li>
-  </ul>
-      </div>  -->
-       
     </div>
-  </section>
-  </div>
+    <vue-toastr ref="toastr"></vue-toastr>
+  </div> 
+  
 </template>
 
 <script>
-require('moment/moment.js');
+import config from '../config.js';
+import toastr from 'vue-toastr';
+require('vue-toastr/src/vue-toastr.less');
+
+
 module.exports = {
   name: 'listblogpost',
   data: function () {
-
-    
     var tabposts = [];
-    firebase.database().ref('posts/').on('child_added', function(data){
-        tabposts.push(data.val());
-    });
-    
+  
+    var datas = {auth: config.authAxios}
+      this.axios.get('note',datas).then(function(data){
+       
+        data._embedded.notedata.forEach(function(element) {
+          tabposts.push(element);
+        }, this);
+        
+      })
+
     return {posts:tabposts};
+  },
+  methods:{
+    
+    deleteNote:function(idNote){
+      var vm = this;
+       var datas = {auth: config.authAxios}
+
+      this.axios.delete('note/'+idNote, datas).then(function(){
+        vm.$refs.toastr.Add({
+                        title: "SUCCESS DELETED MESSAGE",
+                        msg: "Post successfully deleted",
+                        clickClose: true, // Click Close Disable
+                        timeout: 1000, // Remember defaultTimeout is 5 sec..
+                        position: "toast-top-full-width",
+                        type: "success",
+                        onClosed: function(){
+                            vm.$router.go(vm.$router.currentRoute)
+                        }
+                    });
+      })
+    }
   }
 
 }
@@ -50,6 +71,32 @@ module.exports = {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.message-header {
+    background-color: cornflowerblue;
+    border-radius: 3px 3px 0 0;
+    color: #fff;
+    padding: 1px 1px;
+}
+
+.message-header-align {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    background-color: #00d1b2;
+    border-radius: 3px 3px 0 0;
+    color: #fff;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    line-height: 1.25;
+    padding: 0.5em 0.75em;
+    position: relative;
+    margin-top: 20px;
+}
+
 h1, h2 {
   font-weight: normal;
 }

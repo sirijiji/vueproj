@@ -8,18 +8,13 @@
       <div class="nav-item">
         
           <h1 class="title">
-            {{titleObj.msg}}
+            Note Application
           </h1>
         
-        <!--<div>
-          <h2 class="subtitle">
-            {{subMsg}}
-          </h2>
-        </div>-->
       </div>
       <div class="nav-item">
         <router-link to="/addPostForm">
-          <a class="button is-primary">Add a new Post</a>
+          <a class="button is-primary">Ajouter une note</a>
         </router-link>
       </div>
     </div>  
@@ -31,22 +26,12 @@
   </span>
     
     <div  class="nav-right nav-menu" v-bind:class="{'is-active' : toggleActive}">
-    <a class="nav-item" href="#">
+    <router-link to="/app">
       <span class="icon is-large">
         <i class="fa fa-home"></i>
       </span>
-    </a>
-    <a class="nav-item" href="#">
-      <span class="icon is-large">  
-        <i class="fa fa-github-square" aria-hidden="true"></i>
-      </span>
-    </a>
-
-    <a class="nav-item" href="#">
-      <span class="icon is-large">
-        <i class="fa fa-envelope" aria-hidden="true"></i>
-      </span>
-    </a>
+    </router-link>
+   
     </div>
 </nav>
   </div>
@@ -55,23 +40,12 @@
 </template>
 
 <script>
- var database = firebase.database();
-var refDatabase = database.ref();
-
+ 
 module.exports = {
   name: 'titlehero',
   data: function () {
   var titleObj = {msg:'',subMsg:''};
 
-  
-  refDatabase.child('title').on('value',function(data){
-      titleObj.msg = data.val();
-  });
-
-
-  refDatabase.child('subtitle').on('value',function(data){
-      titleObj.subMsg = data.val();
-  });
   
     return {titleObj:titleObj, toggleActive:false};
   },

@@ -12,8 +12,11 @@ import PostBlog from './components/PostBlog'
 import ListPostBlog from './components/ListPostBlog'
 import AppPost from './components/AppPost'
 import AddPostForm from './components/AddPostForm'
+import Login from './components/Login'
 import moment from 'moment'
-
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+import toastr from 'vue-toastr'
 
 
 Vue.component('titlehero',TitleHero) 
@@ -23,22 +26,45 @@ Vue.component('sectionblog',SectionBlog)
 Vue.component('postblog',PostBlog)
 Vue.component('listblogpost',ListPostBlog) 
 Vue.component('apppost',AppPost) 
-Vue.component('addpostform',AddPostForm) 
+Vue.component('addpostform',AddPostForm)
+Vue.component('login',Login) 
+Vue.component('vue-toastr',toastr)
 
+
+Vue.use(VueAxios, axios)
 Vue.use(VueRouter)
+
 
 Vue.filter('formatDate', function (date) {
   return moment(date).format('DD/MM/YYYY hh:mm:ss');
 })
+Vue.axios.defaults.baseURL = 'http://localhost:8080/api';
+Vue.axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
+// Add a response interceptor
+Vue.axios.interceptors.response.use(function (response) {
+    // Do something with response data
+    return response.data;
+  }, function (error) {
+    // Do something with response error
+    return Promise.reject(error);
+  });
 
 const routes = [ 
   
-  {path: '/sectionblog', component: SectionBlog,
-  children:[
-    {path:'post', component: PostBlog}
-  ]},
-  {path:'/', component: AppPost},
+  {
+    path: '/sectionblog', 
+    component: SectionBlog,
+    children:[
+      {
+        path:'post/:id', 
+        component: PostBlog,
+        props:true
+      }
+    ]},
+  {path:'/app', component: AppPost},
+  {path:'/', component: Login},
+  
   {path:'/addPostForm', component: AddPostForm},
 ]
 
@@ -57,6 +83,7 @@ const app = new Vue({
   components: { App }
   
 }).$mount('#app')
+
 
 
 
