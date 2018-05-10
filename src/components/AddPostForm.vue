@@ -4,7 +4,7 @@
 
 <titlehero></titlehero>
  
-    <navmenu></navmenu>
+    
     <section class="section">
       
     <div class="container">
@@ -61,6 +61,7 @@ const router = new vuerouter({
             
             submitForm:function(){
                 var vm = this;
+                //this.$router.go(this.$router.currentRoute)
                  
 
             this.axios({

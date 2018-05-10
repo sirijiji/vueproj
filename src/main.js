@@ -17,6 +17,8 @@ import moment from 'moment'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import toastr from 'vue-toastr'
+import VueSession from 'vue-session'
+
 
 
 Vue.component('titlehero',TitleHero) 
@@ -33,12 +35,13 @@ Vue.component('vue-toastr',toastr)
 
 Vue.use(VueAxios, axios)
 Vue.use(VueRouter)
+Vue.use(VueSession)
 
 
 Vue.filter('formatDate', function (date) {
   return moment(date).format('DD/MM/YYYY hh:mm:ss');
 })
-Vue.axios.defaults.baseURL = 'http://localhost:8080/api';
+Vue.axios.defaults.baseURL = 'http://note.sirisak.fr:8080/api';
 Vue.axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
 // Add a response interceptor
@@ -51,7 +54,6 @@ Vue.axios.interceptors.response.use(function (response) {
   });
 
 const routes = [ 
-  
   {
     path: '/sectionblog', 
     component: SectionBlog,

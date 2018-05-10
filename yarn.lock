@@ -3508,6 +3508,10 @@ vue-router@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-2.1.1.tgz#10c31bbdcb6da92bd3e0223fa12345e73018625a"
 
+vue-session@^0.9.5:
+  version "0.9.5"
+  resolved "https://registry.yarnpkg.com/vue-session/-/vue-session-0.9.5.tgz#a28adf42df1b72e557e5ed5d68731ea922f07187"
+
 vue-style-loader@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/vue-style-loader/-/vue-style-loader-1.0.0.tgz#abeb7bd0f46313083741244d3079d4f14449e049"

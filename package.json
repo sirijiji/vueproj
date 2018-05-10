@@ -17,6 +17,7 @@
     "vue": "^2.1.8",
     "vue-axios": "^2.0.2",
     "vue-router": "^2.1.1",
+    "vue-session": "^0.9.5",
     "vue-toastr": "^2.0.5"
   },
   "devDependencies": {

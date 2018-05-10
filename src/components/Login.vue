@@ -43,6 +43,7 @@ import config from '../config.js';
 import toastr from 'vue-toastr';
 Vue.component('vue-toastr',toastr)
 require('vue-toastr/src/vue-toastr.less');
+var vueSession = require("vue-session");
 module.exports = {
     name:'login',
     data: function() { 
@@ -61,6 +62,7 @@ module.exports = {
          }
          
          this.axios.get('login/search/findLoginByUser', datas).then(function(data){
+           
            
            if(vm.passwordInput === data.password){
                vm.$refs.toastr.Add({

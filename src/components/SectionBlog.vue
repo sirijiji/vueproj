@@ -2,7 +2,7 @@
 <div id="sectionblog">
 <titlehero></titlehero>
  
-    <navmenu></navmenu>
+    
     <section class="section">
       
       <router-view></router-view>
